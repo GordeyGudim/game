@@ -3,27 +3,31 @@ listwords = ['абонемент', 'абсолютный', 'авиамодель
 word = random.choice(listwords)
 true = []
 false = []
-for i in range(0, len(word), 2):
-    true.append(word[i])
-for i in range(1, len(word), 2):
-    false.append(word[i])
+for i in range(0, len(word)):
+    if i%2 == 0:
+        true.append(word[i])
+    else:
+        false.append(word[i])  
 # Перемешивает фолзовый лист 
 random.shuffle(false)
 if len(word)%2 == 0:
-    w = '_'.join(true).pop()
+    w = '_'.join(true)+'_'
 else:
     w = '_'.join(true)
+print(w)
 w1 = []
 for i in w:
     w1.append(i)
-print(w1)
 print(*false)
-print(word)
 r = 1
 for i in range(1, len(word), 2):
     n = ''
+    
     while n != word[i]:
         n = input()
+        
+            
+            
     w1[r] = n
     r+=2
     print(*w1)
